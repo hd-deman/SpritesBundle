@@ -18,7 +18,7 @@
 
     "require": {
         "php": ">=5.3.2",
-        "pminnieur/sprites": "dev-develop",
+        "pminnieur/sprites": "dev-assetic",
         "symfony/symfony": "2.*"
     },
 
