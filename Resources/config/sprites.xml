@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+
+        <parameter key="pminnieur_sprites.dynamic_processor.class">Sprites\Processor\DynamicProcessor</parameter>
+        <parameter key="pminnieur_sprites.fixed_processor.class">Sprites\Processor\FixedProcessor</parameter>
+        <parameter key="pminnieur_sprites.configuration_provider.class">Pminnieur\SpritesBundle\Provider\ConfigurationProvider</parameter>
+
+    </parameters>
+
+    <services>
+
+        <service
+            id="pminnieur_sprites.imagine"
+            class="%pminnieur_sprites.imagine.class%"
+        />
+
+        <service
+            id="pminnieur_sprites.dynamic_processor"
+            class="%pminnieur_sprites.dynamic_processor.class%"
+            scope="prototype"
+        />
+
+        <service
+            id="pminnieur_sprites.fixed_processor"
+            class="%pminnieur_sprites.fixed_processor.class%"
+            scope="prototype"
+        />
+
+        <service
+            id="pminnieur_sprites.configuration_provider"
+            class="%pminnieur_sprites.configuration_provider.class%"
+        >
+            <argument type="service" id="service_container"/>
+            <argument>%pminnieur_sprites.configuration%</argument>
+        </service>
+
+    </services>
+</container>
